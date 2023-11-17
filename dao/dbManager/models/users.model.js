@@ -19,11 +19,11 @@ const usersSchema = new mongoose.Schema({
         type:Number,
         required: true},
     
-    // password: {
-    //     type: String,
-    //     required: true}
     password: {
-        type: String}
+        type: String,
+        required: true}
+    // password: {
+    //     type: String}
     // isAdmin: {
     //     type: String,
     //     required: true,

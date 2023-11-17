@@ -75,10 +75,10 @@ const initializePassport = () => {
                 //crear la cuenta o usuario desde cero. Obtengo lo que puedo de Github.  _json: { name: 'alex' }
                 const newUser = {
                     first_name: profile._json.login,
-                    last_name: 'Tubio', //no viene de github
-                    age: 18, //no viene de github, pongo algo por defecto.
+                    last_name: ' ', //no viene de github
+                    age: 5000, //no viene de github, pongo algo por defecto.
                     email,
-                    password: '' //no la necesito con este mecanismo de aut, por eso seteo vacío.
+                    password: ' ' //no la necesito con este mecanismo de aut, por eso seteo vacío.
                 }
 
                 const result = await usersModel.create(newUser);
