@@ -99,6 +99,9 @@ passport.use('register', new LocalStrategy({ //segundo parámetro es la estrateg
     }, async (req, username, password, done) => {
         try {
             const { first_name, last_name, age } = req.body; //obvio email y password porque ya los tengo de dos líneas antes
+            if (!first_name|| !last_name || !username || !age || !password) {
+                return done(null,false);
+            }
             const user = await usersModel.findOne({ email: username }); //el email no vino en el body como tal sino que tengo el username.
             
             if(user) {

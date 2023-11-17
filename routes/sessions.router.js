@@ -107,8 +107,15 @@ router.get('/github', passport.authenticate('github', {scope: ['user:email']}), 
 
 //callback para que una vez autenticados con github, nos redireccione a nuestra app.
 router.get('/github-callback', passport.authenticate('github', { failureRedirect: '/login' }), async(req, res) => {
-    req.session.user = req.user; //en la ruta de arriba la parte de api/sessions no hace falta. La parte de session no cambia.
-    res.redirect('/');
+  //  req.session.user = req.user; //en la ruta de arriba la parte de api/sessions no hace falta. La parte de session no cambia.
+  req.session.user = {
+    first_name: req.user.first_name,
+    last_name: req.user.last_name,
+    email: req.user.email,
+    age: req.user.age,
+    isAdmin:(req.user.email=="adminCoder@coder.com")
+}  
+  res.redirect('/');
 });
 
 export default router;
